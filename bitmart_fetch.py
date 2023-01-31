@@ -34,7 +34,7 @@ def print_trades(data):
                 print("!", round(time.time() * 1000), i['symbol'].replace("_", "-"), 'S', i['price'],
                       i['size'], end='\n')
     except:
-        print(data)
+        pass
 def print_orderbook(data):
     try:
         asks = data['data'][0]['asks']
@@ -55,7 +55,7 @@ def print_orderbook(data):
                   re.sub(r".$", "", ''.join(str(x[1]) + "@" + str(x[0]) + "|" for x in asks))
                   , end='\n')
     except:
-        print(data)
+        pass
 def send_chuncks(symbols, url):
     messages = []
     chunks = list(divide_chunks(symbols, CONNECTIONS_MAX_SIZE))
